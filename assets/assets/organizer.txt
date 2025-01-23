@@ -1,0 +1,10 @@
+| Welcome to Inksprite! | 59421
+  | Section One | 59409 
+    | Getting Started | 59410
+    | All Functions | 59413
+  | Section Two | 59412
+    | Coming Soon | 59412
+    | Thank you! | 59412
+  | New Element | 0xe3c9
+  | New Element | 0xe3c9
+  | New Element | 0xe3c9
