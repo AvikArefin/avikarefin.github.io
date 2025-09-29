@@ -1,6 +1,6 @@
 {
-    "name": "inkspire",
-    "short_name": "inkspire",
+    "name": "inkline",
+    "short_name": "inkline",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
