@@ -1,6 +1,6 @@
 # Inkspire
 
-[currently underdevelopment]
+> currently underdevelopment
 
 Your 1-s whiteboard
 
