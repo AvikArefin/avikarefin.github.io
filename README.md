@@ -1,10 +1,12 @@
-# Inkspire
+# R8
+
+v0.5
 
 > currently underdevelopment
 
 Your 1-s whiteboard
 
-No login, signup, cookie, tracking, cloud storage, or even processing.
+No login, signup, cookie, tracking, cloud storage or cloud processing.
 
 All processing is done on your computer. And you can only save to or load from your pc.
 
