@@ -1,54 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
-  <base href="/">
-
   <meta charset="UTF-8">
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
-
-  <!-- iOS meta tags & icons -->
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="r8">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
-
-  <title>r8</title>
-  <link rel="manifest" href="manifest.json">
-  <style>
-    html, body {
-      /* Prevents the browser's default drag/swipe to go back behavior */
-      overscroll-behavior-x: none;
-      overscroll-behavior-y: none;
-      overscroll-behavior: none;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Avik Arefin</title>
+  <meta name="description" content="Avik Arefin. Mechatronics engineer. Flutter apps that talk to hardware, machine learning notes, and a handwriting canvas.">
+  <link rel="icon" href="https://avatars.githubusercontent.com/u/86384286?s=64&v=4">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/site/style.css">
 </head>
 <body>
-  <!--
-    You can customize the "flutter_bootstrap.js" script.
-    This is useful to provide a custom configuration to the Flutter loader
-    or to give the user feedback during the initialization process.
+  <header class="bar">
+    <a class="bar__name" href="/"><span class="led" aria-hidden="true"></span>Avik Arefin</a>
+    <nav class="bar__nav" aria-label="Projects">
+      <a href="/AtoZAI/"><span class="k" aria-hidden="true">1</span><span class="slash">/</span>AtoZAI</a>
+      <a href="https://cortextech.dev"><span class="k" aria-hidden="true">2</span><span class="slash">/</span>cortextech</a>
+      <a href="/r8/"><span class="k" aria-hidden="true">3</span><span class="slash">/</span>r8</a>
+    </nav>
+  </header>
 
-    For more details:
-    * https://docs.flutter.dev/platform-integration/web/initialization
-  -->
-  <script src="flutter_bootstrap.js" async></script>
+  <main class="sheet">
+    <section class="hero">
+      <div class="hero__title">
+        <h1>Mecha<em>·</em>tronics<br>engineer</h1>
+      </div>
+      <dl class="hero__spec">
+        <div><span class="lbl">Name</span><span class="val">Avik Md Emtiaz Arefin</span></div>
+        <div><span class="lbl">Field</span><span class="val">Mechatronics</span></div>
+        <div><span class="lbl">Builds</span><span class="val">Flutter · ML · CAD</span></div>
+        <div><span class="lbl">Source</span><span class="val"><a href="https://github.com/AvikArefin">github.com/AvikArefin</a></span></div>
+      </dl>
+    </section>
+
+    <section class="lede">
+      <span class="idx">00 / ABOUT</span>
+      <p>I build apps that do more than show data: they talk to hardware, run models, and handle real-time video. Three things I keep working on live below.</p>
+    </section>
+
+    <section class="modules" aria-label="Projects">
+      <article class="mod">
+        <div class="mod__head"><span class="num">01</span><span>BOOK</span></div>
+        <div>
+          <h2>AtoZAI</h2>
+          <p>An open book of notes on machine learning, deep learning and reinforcement learning. From seeding and loss functions up to transformers, Mamba and JEPA, with figures that animate on the page.</p>
+        </div>
+        <div class="mod__foot"><span class="addr">/AtoZAI/</span><span class="sw">Open</span></div>
+        <a class="cover" href="/AtoZAI/" aria-label="Open AtoZAI"></a>
+      </article>
+      <article class="mod">
+        <div class="mod__head"><span class="num">02</span><span>TEAM</span></div>
+        <div>
+          <h2>CortexTech</h2>
+          <p>A small product engineering team I co-founded. We turn product ideas into working, connected prototypes: embedded systems, IoT, robotics, backend and mobile.</p>
+        </div>
+        <div class="mod__foot"><span class="addr">cortextech.dev</span><span class="sw">Open</span></div>
+        <a class="cover" href="https://cortextech.dev" aria-label="Open CortexTech"></a>
+      </article>
+      <article class="mod">
+        <div class="mod__head"><span class="num">03</span><span>APP</span></div>
+        <div>
+          <h2>r8</h2>
+          <p>A handwriting canvas for notes, built in Flutter and running in the browser. Vector ink, tiled rendering, pages, and an on-device model that reads what you wrote.</p>
+        </div>
+        <div class="mod__foot"><span class="addr">/r8/</span><span class="sw">Launch</span></div>
+        <a class="cover" href="/r8/" aria-label="Launch r8"></a>
+      </article>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>AVIK AREFIN</span>
+    <span><a href="https://github.com/AvikArefin">GITHUB</a> · <a href="https://cortextech.dev">CORTEXTECH.DEV</a></span>
+  </footer>
 </body>
 </html>
