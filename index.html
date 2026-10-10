@@ -12,67 +12,30 @@
   <link rel="stylesheet" href="/site/style.css">
 </head>
 <body>
+  <canvas class="bg" aria-hidden="true"></canvas>
+
   <header class="bar">
-    <a class="bar__name" href="/"><span class="led" aria-hidden="true"></span>Avik Arefin</a>
     <nav class="bar__nav" aria-label="Projects">
-      <a href="/AtoZAI/"><span class="k" aria-hidden="true">1</span><span class="slash">/</span>AtoZAI</a>
-      <a href="https://cortextech.dev"><span class="k" aria-hidden="true">2</span><span class="slash">/</span>cortextech</a>
-      <a href="/r8/"><span class="k" aria-hidden="true">3</span><span class="slash">/</span>r8</a>
+      <a href="/AtoZAI/">AtoZAI</a>
+      <a href="https://cortextech.dev">cortextech</a>
+      <a href="/r8/">r8</a>
     </nav>
   </header>
 
   <main class="sheet">
     <section class="hero">
       <div class="hero__title">
-        <h1>Mecha<em>·</em>tronics<br>engineer</h1>
+        <p class="hero__lede">Hi, I am <strong>Avik Arefin</strong>, a mechatronics engineer.</p>
+        <h1>Building the<br>next big thing<em>.</em></h1>
       </div>
-      <dl class="hero__spec">
-        <div><span class="lbl">Name</span><span class="val">Avik Md Emtiaz Arefin</span></div>
-        <div><span class="lbl">Field</span><span class="val">Mechatronics</span></div>
-        <div><span class="lbl">Builds</span><span class="val">Flutter · ML · CAD</span></div>
-        <div><span class="lbl">Source</span><span class="val"><a href="https://github.com/AvikArefin">github.com/AvikArefin</a></span></div>
-      </dl>
-    </section>
-
-    <section class="lede">
-      <span class="idx">00 / ABOUT</span>
-      <p>I build apps that do more than show data: they talk to hardware, run models, and handle real-time video. Three things I keep working on live below.</p>
-    </section>
-
-    <section class="modules" aria-label="Projects">
-      <article class="mod">
-        <div class="mod__head"><span class="num">01</span><span>BOOK</span></div>
-        <div>
-          <h2>AtoZAI</h2>
-          <p>An open book of notes on machine learning, deep learning and reinforcement learning. From seeding and loss functions up to transformers, Mamba and JEPA, with figures that animate on the page.</p>
-        </div>
-        <div class="mod__foot"><span class="addr">/AtoZAI/</span><span class="sw">Open</span></div>
-        <a class="cover" href="/AtoZAI/" aria-label="Open AtoZAI"></a>
-      </article>
-      <article class="mod">
-        <div class="mod__head"><span class="num">02</span><span>TEAM</span></div>
-        <div>
-          <h2>CortexTech</h2>
-          <p>A small product engineering team I co-founded. We turn product ideas into working, connected prototypes: embedded systems, IoT, robotics, backend and mobile.</p>
-        </div>
-        <div class="mod__foot"><span class="addr">cortextech.dev</span><span class="sw">Open</span></div>
-        <a class="cover" href="https://cortextech.dev" aria-label="Open CortexTech"></a>
-      </article>
-      <article class="mod">
-        <div class="mod__head"><span class="num">03</span><span>APP</span></div>
-        <div>
-          <h2>r8</h2>
-          <p>A handwriting canvas for notes, built in Flutter and running in the browser. Vector ink, tiled rendering, pages, and an on-device model that reads what you wrote.</p>
-        </div>
-        <div class="mod__foot"><span class="addr">/r8/</span><span class="sw">Launch</span></div>
-        <a class="cover" href="/r8/" aria-label="Launch r8"></a>
-      </article>
+      <div class="track" aria-label="Engineer becoming founder">
+        <span class="track__stop">Engineer</span>
+        <span class="track__line"><i></i></span>
+        <span class="track__stop track__stop--next">Founder</span>
+      </div>
     </section>
   </main>
 
-  <footer class="foot">
-    <span>AVIK AREFIN</span>
-    <span><a href="https://github.com/AvikArefin">GITHUB</a> · <a href="https://cortextech.dev">CORTEXTECH.DEV</a></span>
-  </footer>
+  <script src="/site/waves.js" defer></script>
 </body>
 </html>
