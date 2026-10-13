@@ -33,7 +33,10 @@
         const title = el('span', 'log__title', u.title);
         if (i === 0) title.append(' ', el('span', 'log__tag', 'Updated'));
 
-        a.append(time, title, el('span', 'log__section', u.section || 'AtoZAI'));
+        const body = el('span', 'log__body');
+        body.append(title, el('span', 'log__section', u.section || 'AtoZAI'));
+
+        a.append(time, body);
         li.append(a);
         list.append(li);
       });

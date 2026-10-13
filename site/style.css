@@ -1,4 +1,4 @@
-/* avikarefin.github.io — swiss grid, industrial panel, hero then a log of recent notes */
+/* avikarefin.github.io — swiss grid, industrial panel, hero beside a log of recent notes */
 :root {
   --paper: #e9e8e3;
   --panel: #f4f3ef;
@@ -79,28 +79,25 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   .bar__nav a { flex: 1; justify-content: center; padding: 0 8px; }
 }
 
-/* Page frame: everything below the bar; the hero takes the slack when the log is absent */
+/* Page frame: bar on top, hero and log in the middle, story track pinned to the bottom edge.
+   Narrow: one column. Wide: hero on the left, log on the right, both hung from the same line. */
 .sheet {
   flex: 1;
   min-height: 0;
   width: 100%;
-  padding: 0 var(--gutter);
+  padding: clamp(28px, 7vh, 72px) var(--gutter) clamp(20px, 4vh, 36px);
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 1fr auto;
+  grid-template-rows: auto auto 1fr;
   column-gap: var(--unit);
+  row-gap: clamp(32px, 6vh, 56px);
 }
-.sheet > * { grid-column: 1 / -1; }
+.sheet > * { grid-column: 1 / -1; min-width: 0; }
+/* No feed: the hero has the screen to itself, centred, as before */
+.sheet:has(.log[hidden]) { grid-template-rows: 1fr auto; }
+.sheet:has(.log[hidden]) .hero { align-self: center; }
 
-/* Hero: hello line and oversized title centred left, story track along the bottom */
-.hero {
-  padding: clamp(20px, 4vh, 40px) 0 clamp(20px, 4vh, 40px);
-  display: grid;
-  grid-template-columns: subgrid;
-  grid-template-rows: 1fr auto;
-  row-gap: clamp(20px, 4vh, 40px);
-  min-height: min(66dvh, 620px);
-}
+/* Hero: hello line over the oversized title */
 .hero__lede {
   margin: 0 0 clamp(14px, 2.5vh, 24px) 2px;
   font-size: clamp(16px, 2vw, 22px);
@@ -108,20 +105,20 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   max-width: 40ch;
 }
 .hero__lede strong { font-weight: 600; color: var(--ink); }
-.hero__title { grid-column: 1 / -1; align-self: center; margin: 0; min-width: 0; }
-.hero__title h1 {
+.hero h1 {
   margin: 0;
   font-weight: 700;
-  font-size: clamp(40px, min(10.5vw, 15vh), 148px);
+  font-size: clamp(36px, min(10.5vw, 13vh), 96px);
   line-height: 0.92;
   letter-spacing: -0.035em;
   text-transform: uppercase;
   font-stretch: 88%;
 }
-.hero__title h1 em { font-style: normal; color: var(--accent); }
+.hero h1 em { font-style: normal; color: var(--accent); }
+
 /* Track: the story in one line, engineer on the left, founder on the right, marker in transit */
 .track {
-  grid-column: 1 / -1;
+  align-self: end;
   display: flex; align-items: center; gap: 16px;
   font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
   color: var(--ink-2);
@@ -139,14 +136,8 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   width: 9px; height: 9px; border-radius: 50%;
   background: var(--accent); box-shadow: 0 0 0 3px var(--paper), 0 0 10px var(--accent);
 }
-@media (min-width: 900px) {
-  .hero__title { grid-column: 1 / 11; }
-  .hero__title h1 { font-size: clamp(56px, min(8.4vw, 16vh), 132px); }
-  .track { grid-column: 1 / 11; }
-}
 
 /* Log: notes most recently edited in AtoZAI, filled by updates.js; one row per page, newest first */
-.log { padding-bottom: clamp(28px, 6vh, 64px); }
 .log[hidden] { display: none; }
 .log__head {
   display: flex; align-items: baseline; justify-content: space-between; gap: 16px;
@@ -161,15 +152,17 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .log__row { border-bottom: 1px solid var(--rule); }
 .log__row a {
   display: grid;
-  grid-template-columns: 9ch minmax(0, 1fr) auto;
+  grid-template-columns: 8ch minmax(0, 1fr);
   column-gap: 16px; align-items: baseline;
-  padding: 14px 0;
+  padding: 12px 0;
 }
 .log__date, .log__section {
   font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
-  color: var(--ink-2); white-space: nowrap;
+  color: var(--ink-2);
 }
-.log__title { min-width: 0; font-size: clamp(17px, 1.6vw, 21px); font-weight: 600; letter-spacing: -0.015em; line-height: 1.25; }
+.log__date { white-space: nowrap; }
+.log__body { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.log__title { font-size: clamp(17px, 1.5vw, 20px); font-weight: 600; letter-spacing: -0.015em; line-height: 1.25; }
 .log__tag {
   display: inline-block; vertical-align: 0.2em; margin-left: 4px; padding: 2px 6px;
   background: var(--accent); color: var(--accent-ink);
@@ -177,20 +170,24 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 }
 .log__row a:hover .log__title { color: var(--accent); }
 .log__row a:hover .log__tag { color: var(--accent-ink); }
-@media (max-width: 639px) {
-  .log__row a { grid-template-columns: minmax(0, 1fr) auto; row-gap: 4px; }
-  .log__date { order: 1; }
-  .log__section { order: 2; }
-  .log__title { order: 3; grid-column: 1 / -1; }
-}
+
 @media (min-width: 900px) {
-  .log { grid-column: 1 / 11; }
+  .sheet { grid-template-rows: auto 1fr; }
+  .hero { grid-column: 1 / 6; grid-row: 1; }
+  /* sized so the longest title line stays inside five columns */
+  .hero h1 { font-size: clamp(44px, min(5.6vw, 13vh), 96px); }
+  /* nudged down so the log's heading shares a baseline with the hello line */
+  .log { grid-column: 7 / -1; grid-row: 1; padding-top: 9px; }
+  .track { grid-row: 2; }
+  .sheet:has(.log[hidden]) .hero { grid-column: 1 / -1; }
+  .sheet:has(.log[hidden]) .hero h1 { font-size: clamp(56px, min(8.4vw, 16vh), 132px); }
 }
 
 /* Load: a quiet stagger, nothing more */
 @media (prefers-reduced-motion: no-preference) {
-  .hero__title, .track { animation: rise .6s cubic-bezier(.2,.7,.2,1) both; }
-  .track { animation-delay: .08s; }
+  .hero, .log, .track { animation: rise .6s cubic-bezier(.2,.7,.2,1) both; }
+  .log { animation-delay: .06s; }
+  .track { animation-delay: .12s; }
   .track__line i { animation: creep 6s ease-in-out infinite alternate; }
   @keyframes creep { from { left: 60%; } to { left: 66%; } }
   @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
