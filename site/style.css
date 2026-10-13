@@ -1,4 +1,4 @@
-/* avikarefin.github.io — swiss grid, industrial panel, one screen */
+/* avikarefin.github.io — swiss grid, industrial panel, hero then a log of recent notes */
 :root {
   --paper: #e9e8e3;
   --panel: #f4f3ef;
@@ -79,7 +79,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   .bar__nav a { flex: 1; justify-content: center; padding: 0 8px; }
 }
 
-/* Page frame: everything below the bar, no scroll */
+/* Page frame: everything below the bar; the hero takes the slack when the log is absent */
 .sheet {
   flex: 1;
   min-height: 0;
@@ -87,6 +87,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   padding: 0 var(--gutter);
   display: grid;
   grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 1fr auto;
   column-gap: var(--unit);
 }
 .sheet > * { grid-column: 1 / -1; }
@@ -98,6 +99,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   grid-template-columns: subgrid;
   grid-template-rows: 1fr auto;
   row-gap: clamp(20px, 4vh, 40px);
+  min-height: min(66dvh, 620px);
 }
 .hero__lede {
   margin: 0 0 clamp(14px, 2.5vh, 24px) 2px;
@@ -141,6 +143,50 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   .hero__title { grid-column: 1 / 11; }
   .hero__title h1 { font-size: clamp(56px, min(8.4vw, 16vh), 132px); }
   .track { grid-column: 1 / 11; }
+}
+
+/* Log: notes most recently edited in AtoZAI, filled by updates.js; one row per page, newest first */
+.log { padding-bottom: clamp(28px, 6vh, 64px); }
+.log[hidden] { display: none; }
+.log__head {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--rule-strong);
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+}
+.log__head h2 { margin: 0; font: inherit; font-weight: 600; }
+.log__head a { color: var(--ink-2); }
+.log__head a:hover { color: var(--accent); }
+.log__list { list-style: none; margin: 0; padding: 0; }
+.log__row { border-bottom: 1px solid var(--rule); }
+.log__row a {
+  display: grid;
+  grid-template-columns: 9ch minmax(0, 1fr) auto;
+  column-gap: 16px; align-items: baseline;
+  padding: 14px 0;
+}
+.log__date, .log__section {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--ink-2); white-space: nowrap;
+}
+.log__body { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.log__title { font-size: clamp(17px, 1.6vw, 21px); font-weight: 600; letter-spacing: -0.015em; line-height: 1.25; }
+.log__note { font-size: 14px; color: var(--ink-2); overflow-wrap: anywhere; }
+.log__tag {
+  display: inline-block; vertical-align: 0.2em; margin-left: 4px; padding: 2px 6px;
+  background: var(--accent); color: var(--accent-ink);
+  font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+}
+.log__row a:hover .log__title { color: var(--accent); }
+.log__row a:hover .log__tag { color: var(--accent-ink); }
+@media (max-width: 639px) {
+  .log__row a { grid-template-columns: minmax(0, 1fr) auto; row-gap: 4px; }
+  .log__date { order: 1; }
+  .log__section { order: 2; }
+  .log__body { order: 3; grid-column: 1 / -1; }
+}
+@media (min-width: 900px) {
+  .log { grid-column: 1 / 11; }
 }
 
 /* Load: a quiet stagger, nothing more */
