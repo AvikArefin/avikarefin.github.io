@@ -10,12 +10,6 @@
   const day = new Intl.DateTimeFormat('en', { month: 'short', day: 'numeric' });
   const dayYear = new Intl.DateTimeFormat('en', { month: 'short', day: 'numeric', year: 'numeric' });
 
-  // "docs: drop the takeaway section" -> "Drop the takeaway section"
-  const tidy = (note) => {
-    const s = (note || '').replace(/^[a-z]+(\([^)]*\))?!?:\s*/i, '');
-    return s.charAt(0).toUpperCase() + s.slice(1);
-  };
-
   const el = (tag, cls, text) => {
     const n = document.createElement(tag);
     if (cls) n.className = cls;
@@ -36,12 +30,10 @@
         const time = el('time', 'log__date', (date.getFullYear() === thisYear ? day : dayYear).format(date));
         time.dateTime = u.date;
 
-        const body = el('span', 'log__body');
         const title = el('span', 'log__title', u.title);
         if (i === 0) title.append(' ', el('span', 'log__tag', 'Updated'));
-        body.append(title, el('span', 'log__note', tidy(u.note)));
 
-        a.append(time, body, el('span', 'log__section', u.section || 'AtoZAI'));
+        a.append(time, title, el('span', 'log__section', u.section || 'AtoZAI'));
         li.append(a);
         list.append(li);
       });

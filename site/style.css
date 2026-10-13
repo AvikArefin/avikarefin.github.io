@@ -169,9 +169,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
   color: var(--ink-2); white-space: nowrap;
 }
-.log__body { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
-.log__title { font-size: clamp(17px, 1.6vw, 21px); font-weight: 600; letter-spacing: -0.015em; line-height: 1.25; }
-.log__note { font-size: 14px; color: var(--ink-2); overflow-wrap: anywhere; }
+.log__title { min-width: 0; font-size: clamp(17px, 1.6vw, 21px); font-weight: 600; letter-spacing: -0.015em; line-height: 1.25; }
 .log__tag {
   display: inline-block; vertical-align: 0.2em; margin-left: 4px; padding: 2px 6px;
   background: var(--accent); color: var(--accent-ink);
@@ -183,7 +181,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   .log__row a { grid-template-columns: minmax(0, 1fr) auto; row-gap: 4px; }
   .log__date { order: 1; }
   .log__section { order: 2; }
-  .log__body { order: 3; grid-column: 1 / -1; }
+  .log__title { order: 3; grid-column: 1 / -1; }
 }
 @media (min-width: 900px) {
   .log { grid-column: 1 / 11; }
